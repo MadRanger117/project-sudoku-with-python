@@ -6,7 +6,8 @@ class ClingoApp(Application):
         self.program_name = name
     def main(self, control, files):
         control.load("sudoku.lp")
-        control.load(files)
+        for file in files:
+            control.load(file)
         control.ground([("base", [])])
         control.solve()
         
@@ -16,5 +17,6 @@ class ClingoApp(Application):
     #   lines.sort()
     #   with open(filename, 'w') as file:
     #     file.writelines(lines)
-
+if __name__ == "__main__":
+    clingo_main(ClingoApp("sudoku1"), sys.argv[1:])
     
