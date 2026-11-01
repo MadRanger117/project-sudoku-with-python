@@ -12,6 +12,7 @@ class ClingoApp(Application):
         control.solve()
         
     def print_model(self, model, printer):
+        print("Custom print model called")
         symbols = model.symbols(shown=True)
         for symbol in sorted(symbols, key=str):
             printer(str(symbol))
