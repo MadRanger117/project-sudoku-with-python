@@ -12,9 +12,9 @@ class ClingoApp(Application):
         control.solve()
         
     def print_model(self, model, printer):
-        symbols = model.symbols(shown=True)
-        print(model.number)
-        print("".join(str(symbol) for symbol in sorted(symbols, key=str)))
+        symbols = sorted(model.symbols(shown=True))
+        print("".join(str(s) for s in symbols))
+        sys.stdout.flush()
         
 if __name__ == "__main__":
     clingo_main(ClingoApp("sudoku1"), sys.argv[1:])
