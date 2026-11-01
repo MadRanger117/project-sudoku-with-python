@@ -11,12 +11,11 @@ class ClingoApp(Application):
         control.ground([("base", [])])
         control.solve()
         
-    def print_alphabetical(filename):
-      with open(filename, 'r') as file:
-        lines = file.readlines()
-      lines.sort()
-      with open(filename, 'w') as file:
-        file.writelines(lines)
+    def print_model(self, model, printer):
+        symbols = model.symbols(shown=True)
+        for symbol in sorted(symbols, key=str):
+            printer(str(symbol))
+        
 if __name__ == "__main__":
     clingo_main(ClingoApp("sudoku1"), sys.argv[1:])
     
