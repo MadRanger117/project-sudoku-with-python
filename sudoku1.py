@@ -13,7 +13,7 @@ class ClingoApp(Application):
         
     def print_model(self, model, printer):
         symbols = sorted(model.symbols(shown=True))
-        print("".join(str(s) for s in symbols))
+        print(" ".join(str(s) for s in symbols))
         sys.stdout.flush()
         
 if __name__ == "__main__":
