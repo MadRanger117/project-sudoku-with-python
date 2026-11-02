@@ -14,7 +14,12 @@ class Sudoku:
     @classmethod
     def from_str(cls, s: str) -> "Sudoku":
         sudoku = {}
-        # YOUR CODE HERE
+        nums = s.split()
+        index = 0
+        for row in range(1, 10):
+            for col in range(1,10):
+                sudoku[(row, col)] = int(nums[index])
+                index += 1
         return cls(sudoku)
 
     @classmethod
