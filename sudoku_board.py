@@ -8,7 +8,16 @@ class Sudoku:
 
     def __str__(self) -> str:
         s = ""
-        # YOUR CODE HERE
+        for row in range(1, 10):
+            if row == 4 or row == 7:
+                s += "\n"
+            for col in range(1,10):
+                if col == 4 or col == 7:
+                    s += "  "
+                else:
+                    s += " "
+                s += str(self.sudoku[(row, col)])
+            s += "\n"
         return s
 
     @classmethod
